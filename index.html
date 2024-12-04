@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	
+	
+<span class="label">Hunger</span>
+<div class="wrapBar" id="hunger"> <span class = 'bar' id= 'barHunger'></span> </div> 
+<span class="label">Happiness</span>
+<div class="wrapBar" id="happyness"> <span class = 'bar' id= 'barHappy'></span> </div> 
+<span class="label">Hygiene</span>
+<div class="wrapBar" id="health"> <span class = 'bar' id= 'barHealth'></span> </div> 
+<div class="flexWrap">
+    <div class="background">
+    <div id="snake"> <img id="snakeImg" src="img/standard.png" alt=""></div>
+</div>
+    
+</div>
+<div class="flexWrap">
+    <button id="hungerbtn" onclick="fillHunger()">Feed me!</button>
+    <button id="happynessbtn" onclick="fillHapinness()">Cuddle me!</button>
+    <button id="healthbtn" onclick="fillCleanless()">I need healing!</button>
+
+</div>
+ <div id="PlayAgain" class="flexWrap hidden"> <button onclick="game()">Start Again</button></div>
+	<script src = 'index.js'></script>
+</body>
+</html>
