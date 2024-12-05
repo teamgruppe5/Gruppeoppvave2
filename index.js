@@ -3,19 +3,21 @@ let hunger = document.getElementById('barHunger')
 let cleanliness = document.getElementById('barHealth')
 let snakePic = document.getElementById('snakeImg')
 
-
 const maxPixelsConst = 145
 let pixelsHung 
 let pixelsHappy 
 let pixelsClean 
 let lower
+let gameOverTimeout;
 
     start()
 function start(){
     document.getElementById('happynessbtn').classList.remove('hidden')
     document.getElementById('healthbtn').classList.remove('hidden')
     document.getElementById('hungerbtn').classList.remove('hidden')
+    document.getElementById('snakeImg').classList.remove('hidden')
     document.getElementById('PlayAgain').classList.add('hidden')
+    document.getElementById('bkg').style.backgroundImage = "url('img/backGround.webp')"
      pixelsHung = maxPixelsConst
      pixelsHappy = maxPixelsConst
      pixelsClean = maxPixelsConst
@@ -58,9 +60,9 @@ function fillCleanless(){
 
 
 function lowerTheBars(){
-    pixelsHappy -= 2
-    pixelsHung -= 3
-    pixelsClean -= 1
+    pixelsHappy -= 0.2
+    pixelsHung -= 0.25
+    pixelsClean -= 0.15
  
     
     happynes.style.width = "" + pixelsHappy + "px";
@@ -77,7 +79,7 @@ function lowerTheBars(){
     else {
         happynes.style.width = '1px';
         gameOver();
-        changePic('death')
+        return;
     }
 
     if (pixelsHung < 50 && pixelsHung > 0){
@@ -90,6 +92,7 @@ function lowerTheBars(){
     else{
         hunger.style.width = '1px'
         gameOver()
+        return;
     }
 
     if(pixelsClean < 50 && pixelsClean > 0){
@@ -102,6 +105,7 @@ function lowerTheBars(){
     else {
         cleanliness.style.width = '1px'
         gameOver()
+        return;
     }
 }
 
@@ -113,14 +117,21 @@ function gameOver(){
   document.getElementById('healthbtn').classList.add('hidden')
   document.getElementById('hungerbtn').classList.add('hidden')
   document.getElementById('PlayAgain').classList.remove('hidden')
-  
+
+  gameOverTimeout = setTimeout(gameOverScreen, 2000);
+}
+
+function gameOverScreen(){
+    document.getElementById('snakeImg').classList.add('hidden')
+    document.getElementById('bkg').style.backgroundImage = "url('img/Geir.gif')"
+
 }
 
 function changePic(pic){
     if(pic == 'death'){
         snakePic.src = 'img/ded2.png'
     }else if (pic == 'hungry'){
-        snakePic.src = 'img/standard.png'
+        snakePic.src = 'img/geir_er_sulten.png'
     }else if (pic == 'sad') {
         snakePic.src = 'img/sad3.png'
     }else if(pic == 'dirty'){

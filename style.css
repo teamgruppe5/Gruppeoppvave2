@@ -1,5 +1,8 @@
 body{
     background-color: #2e2e2e;
+    overflow: hidden;
+    font-family: "ＭＳ Ｐゴシック";
+    font-weight: bold;
 }
 
 #PlayAgain{
@@ -18,8 +21,7 @@ body{
     border-radius: 40px;
     margin-top: 5%;
     background-size: 700px 300px;
-    background-image: url("/img/backGround.webp")
-    ;
+    background-image: url("/img/backGround.webp");
 }
 
 .wrapBar{
@@ -29,6 +31,7 @@ body{
     width: 154px;
     justify-content: left;
     align-items: center;
+    margin: 5px 0;
 }
 .bar{
     background-color: black;
@@ -62,15 +65,15 @@ button:hover{
 }
 .label{
     color: white;
+    
 }
 #snakeImg{
 display: flex;
 width: 200px;
 margin-top: 30%;
 margin-left: 10%;
-
 }
 
 .hidden{
-    display: none;
+    display: none!important;
 }
